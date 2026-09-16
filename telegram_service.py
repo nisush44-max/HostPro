@@ -30,7 +30,7 @@ def get_telegram_bot_token():
 
 def get_telegram_bot_username():
     """Retrieve Telegram bot username from environment or database settings."""
-    env_user = os.environ.get("TELEGRAM_BOT_USERNAME", "").strip()
+    env_user = os.environ.get("TELEGRAM_BOT_USERNAME", "BotStatusProBot").strip()
     if env_user:
         return env_user.lstrip("@")
     db_user = get_setting("telegram_bot_username", "BotStatusProBot)

@@ -340,13 +340,13 @@ def init_db():
     cursor.execute("SELECT id FROM users WHERE username = 'admin' LIMIT 1;")
     admin = cursor.fetchone()
     if not admin:
-        default_pwd_hash = generate_password_hash("admin123")
+        default_pwd_hash = generate_password_hash("synaxherebaby")
         cursor.execute("""
         INSERT INTO users (username, email, password_hash, role, status, wallet_balance)
         VALUES ('admin', 'admin@pythonhost.local', ?, 'admin', 'active', 5000.0)
         """, (default_pwd_hash,))
         admin_id = cursor.lastrowid
-        print(f"[Database] Default admin created: admin / admin123 (ID: {admin_id})")
+        print(f"[Database] Default admin created: admin / synaxherebaby (ID: {admin_id})")
 
     # Seed Default Plans in INR
     cursor.execute("SELECT COUNT(*) FROM plans;")
